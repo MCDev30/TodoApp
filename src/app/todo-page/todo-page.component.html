@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="body">
+    <div class="head">
+      <h1 style="font-size: 16px;">TODO APP</h1>
+      <p>Username</p>
+    </div>
+    <hr>
+    <div class="formControle">
+      <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div class="inputSession">
+          <input type="text" placeholder="Entrez la tâche" id="task" required ngModel name="task">
+        </div>
+        <input type="submit" id="submitButton" value="+">
+      </form>
+    </div>
+    <hr>
+
+    <div class="todo_table">
+      <table >
+        <thead>
+          <tr>
+            <th>Tâche</th>
+            <th>Terminée</th>
+            <th>Supprimer</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let task of tache" id="tas">
+            <td>{{task.name}}</td>
+            <td><input type="checkbox" name="check" id="check"></td>
+            <td><button id="delete">Supprimer</button></td>
+          </tr>
+        </tbody>
+
+    </table>
+    </div>
+  </div>
+</div>
