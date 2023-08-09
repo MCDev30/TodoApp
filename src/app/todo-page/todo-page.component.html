@@ -10,7 +10,7 @@
         <div class="inputSession">
           <input type="text" placeholder="Entrez la tâche" id="task" required ngModel name="task">
         </div>
-        <input type="submit" id="submitButton" value="+">
+        <input type="submit" id="submitButton" value="+" [disabled]="myForm.invalid">
       </form>
     </div>
     <hr>
@@ -26,10 +26,10 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let task of tache" id="tas">
-            <td>{{task.name}}</td>
-            <td><input type="checkbox" name="check" id="check"></td>
-            <td><button id="delete">Supprimer</button></td>
+          <tr *ngFor="let task of tache; index as ind" id="tas">
+            <td [ngStyle]="{ 'text-decoration': task.complete ? 'line-through' : 'none' }">{{task.name}}</td>
+            <td><input type="checkbox" name="check" id="check" (change)="onCheck(ind)"></td>
+            <td><button id="delete" (click)="onDelete(ind)">Supprimer</button></td>
           </tr>
         </tbody>
 

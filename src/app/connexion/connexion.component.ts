@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent {
-
+  
 }

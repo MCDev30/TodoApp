@@ -9,11 +9,26 @@ import { NgForm } from '@angular/forms';
 
 
 export class TodoPageComponent {
-  tache = [{{name:"Créer une todoApp", complete:false}}]
+  
+  tache = [{
+    name:"Todo App Seyls Africa",
+    complete:false
+  }]
+
   onSubmit(form: NgForm){
     this.tache.unshift({
       name: form.controls['task'].value,
       complete: false
     })
+    form.reset()
+  }
+
+  onDelete(index: number){
+    console.log(index)
+    this.tache.splice(index,1)
+  }
+
+  onCheck(index: number){
+    this.tache[index].complete = !this.tache[index].complete
   }
 }
